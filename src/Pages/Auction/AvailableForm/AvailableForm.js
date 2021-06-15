@@ -56,7 +56,7 @@ export default function AddressForm() {
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs>
-          <Button variant="contained" color="secondary" className={classes.button}>No</Button>
+          <Button variant="contained" color="secondary" className={classes.button} href="/" >No</Button>
         </Grid>
       </Grid>
     </React.Fragment>
