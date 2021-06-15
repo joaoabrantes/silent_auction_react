@@ -8,13 +8,6 @@ function valuetext(value) {
 }
 
 export default function PaymentForm() {
-  const [value, setValue] = React.useState(30);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-
   return (
     <React.Fragment>
       <Typography id="discrete-slider" gutterBottom>
