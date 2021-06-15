@@ -6,16 +6,13 @@ import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import CalendarIcon from '@material-ui/icons/CalendarToday';
 import PeopleIcon from '@material-ui/icons/People';
 import ScheduleIcon from '@material-ui/icons/Schedule';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   layout: {
@@ -68,9 +65,11 @@ export const Home = () => {
     <React.Fragment>
       <CssBaseline />
       <main className={classes.layout}>
-        <Typography component="h2" variant="h4" align="center">
-            Next Events
-        </Typography>
+        <Box pt={4}>
+          <Typography component="h1" variant="h4" align="center">
+         Next Events
+          </Typography>
+        </Box>
         <br></br>
         {events.map(event => (
           <div>

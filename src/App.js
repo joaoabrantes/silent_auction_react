@@ -23,20 +23,21 @@ import {
 import './App.css';
 
 const useStyles = makeStyles(() => ({
-  root: {
+  body: {
     bottom: '0px',
     left: '0px',
     right: '0px',
     width: '100%',
-    height: '60px',
-    'text-align': 'center'
-
+    textAlign: 'center',
+    paddingBottom: '56px',
   },
   stickToBottom: {
     width: '100%',
     position: 'fixed',
     bottom: 0,
-    'background-color': 'lightblue'
+  },
+  nav: {
+    backgroundColor: 'lightblue'
   }
 }));
 
@@ -52,35 +53,31 @@ const App = () => {
 
 
   return (
-    <div>
-      <div className={classes.root}>
-        <Router>
-          <div>
+    <Router>
+      <div className={classes.body}>
 
-            {/* A <Switch> looks through its children <Route>s and
+        {/* A <Switch> looks through its children <Route>s and
                     renders the first one that matches the current URL. */}
-            <Switch>
-              <Route path="/auction">
-                <Auction />
-              </Route>
-              <Route path="/profile">
-                <Profile />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </div>
-          <div className={classes.stickToBottom}>
-            <BottomNavigation value={value} onChange={handleChange} className="bottomNav">
-              <BottomNavigationAction component={Link} to="/" label="Home" value="home" icon={<HomeIcon />} />
-              <BottomNavigationAction component={Link} to="/auction" label="Auction" value="auction" icon={<GavelIcon />} />
-              <BottomNavigationAction component={Link} to="/profile" label="Profile" value="profile" icon={<PersonIcon />} />
-            </BottomNavigation>
-          </div>
-        </Router>
+        <Switch>
+          <Route path="/auction">
+            <Auction />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </div>
-    </div>
+      <div className={classes.stickToBottom}>
+        <BottomNavigation value={value} onChange={handleChange} className={classes.nav} showLabels>
+          <BottomNavigationAction component={Link} to="/" label="Home" value="home" icon={<HomeIcon />} />
+          <BottomNavigationAction component={Link} to="/auction" label="Auction" value="auction" icon={<GavelIcon />} />
+          <BottomNavigationAction component={Link} to="/profile" label="Profile" value="profile" icon={<PersonIcon />} />
+        </BottomNavigation>
+      </div>
+    </Router>
   );
 };
 
